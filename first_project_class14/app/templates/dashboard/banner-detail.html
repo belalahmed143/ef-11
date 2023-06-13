@@ -1,0 +1,19 @@
+{% extends 'dashboard/base.html' %}
+
+
+
+{% block dashboard %}
+<h2>Banner-Details-Page</h2>
+
+<div class="card">
+    <img src="{{ details.image.url }}" style="width: 500px;" alt="">
+    <div class="card-body">
+        <h4>{{ details.title }}</h4>
+        <h4>{{ details.url }}</h4>
+    </div>
+</div>
+
+
+  
+{% endblock dashboard %}
+  

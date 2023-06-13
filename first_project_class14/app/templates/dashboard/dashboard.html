@@ -1,0 +1,45 @@
+{% extends 'dashboard/base.html' %}
+
+
+
+{% block dashboard %}
+
+
+<h2>Banner-list</h2>
+
+<a class="btn btn-info" href="{% url 'banner_add' %}">+ News</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>title</th>
+      <th>image</th>
+      <th>company_name</th>
+      <th>url</th>
+      <th>View</th>
+      <th>edit</th>
+      <th>delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for c in banner_list %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ c.title }}</td>
+        <td><img src="{{ c.image.url }}" alt="" style="height: 50px;"></td>
+        <td>{{ c.company_name }}</td>
+        <td>{{ c.url }}</td>
+        <td class="btn btn-primary text-dark"><a href="{% url 'banner_detail' c.title %}">View</a></td>
+        <td class="btn btn-primary text-dark"><a href="{% url 'banner_edit' c.pk %}">Edit</a></td>
+        <td class="btn btn-danger text-dark"><a href="{% url 'banner_delete' c.pk %}">Delete</a></td>
+      </tr>
+    {% endfor %}
+      
+
+  </tbody>
+</table>
+
+  
+{% endblock dashboard %}
+  
